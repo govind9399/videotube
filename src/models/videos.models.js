@@ -1,7 +1,7 @@
 import mongoose from  'mongoose'
 
 const videosSchema = new  mongoose.Schema({
-     id:{type:String, required:true,default:"0"},
+     id:{type:String, required:true,default:0},
      videofile:{
         type:String,
         required:true
@@ -12,7 +12,8 @@ const videosSchema = new  mongoose.Schema({
      },
      title:{
         type:String,
-        required:true
+        required:true,
+        unique:false
      },
      description:{
         type:String,
@@ -20,22 +21,22 @@ const videosSchema = new  mongoose.Schema({
      },
      duration:{
         type:Number,
-        required:true
+        required:true,
+        default:0
      },
      views:{
         type:Number,
-        
+        default:0
      },
      isPublished:{
-        type:Boolean
+        type:Boolean,
+        required:true
      },
-     createdAt:{type:Date, default:"00/00/0000"},
-     updatedAt:{type:Date, default:"00/00/0000"},
      owner:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"users",
         required:true
-     },
+     }
 },{timestamps:true})
 
 export const Videos = mongoose.model("Videos","userSchema")

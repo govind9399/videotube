@@ -36,9 +36,7 @@ const userSchema = new  mongoose.Schema({
        refreshToken:{
         type:String,
         required:true
-       },
-       createdAt:{type:Date, default:"00/00/0000"},
-       updatedAt:{type:Date, default:"00/00/0000"},
+       }
 },{timestamps:true})
 
 export const user = mongoose.model("user","userSchema")

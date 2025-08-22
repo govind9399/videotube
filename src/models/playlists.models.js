@@ -7,13 +7,24 @@ const playlistsSchema = new  mongoose.Schema({
         required:true
  },
   videos:{
-      type:mongoose.Schema.Types.ObjectId
-  },
-  name:{
-    type:String,
-    required:true
+      type:mongoose.Schema.Types.ObjectId,
+      ref:videos,
   },
 
+  name:{
+    type:String,
+    required:true,
+    unique:true
+  },
+  owner:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:users
+  },
+  description:{
+    type:String,
+    unique:false,
+    required:Option
+  }
 
 },{timestamps:true})
 

@@ -20,10 +20,7 @@ const likesSchema = new  mongoose.Schema({
      likedby:{
          type:mongoose.Schema.Types.ObjectId,
          ref:"likes"
-     },
-     createdAt:{type:Date, default:"00/00/0000"},
-     updatedAt:{type:Date, default:"00/00/0000"},
-
-})
+     }
+},{timestamps:true})
 
 export const likes = mongoose.model("likes","likesSchema")
